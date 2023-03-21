@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 
 import "./styles.css";
@@ -9,13 +9,20 @@ function CalenderComponent() {
 
   const [isYearExpand, setYearExpand] = useState(false);
   const [currentYear, setCurrentYear] = useState(
-    parseInt(moment().format("YYYY"))
+    parseInt(moment().format("YYYY"), 0)
   );
+
+  const [userSearch, setUserSearch] = useState("");
 
   const weekDaysArray = moment.weekdaysShort();
   const monthsInArray = moment.months();
-  const daysInmonth = moment().daysInMonth();
-  const firstDayOfMonth = moment().startOf("month").format("d");
+  const daysInmonth = userSearch
+    ? moment(userSearch, "YYYY-MM").daysInMonth()
+    : moment().daysInMonth();
+
+  const firstDayOfMonth = userSearch
+    ? moment(userSearch, "YYYY-MM").startOf("month").format("d")
+    : moment().startOf("month").format("d");
   const currentDay = moment().format("D");
 
   const blanksDaysArray = [];
@@ -56,7 +63,7 @@ function CalenderComponent() {
     }
   });
 
-  const remaningEmptyCell = 7 - rows.length;
+  const remaningEmptyCell = 7 - rows[rows.length - 1].length;
   for (let remaingCell = 0; remaingCell < remaningEmptyCell; remaingCell++) {
     rows[rows.length - 1].push(<td className="calendar-dates empty">{""}</td>);
   }
@@ -122,6 +129,19 @@ function CalenderComponent() {
     </div>
   );
 
+  useEffect(() => {
+    const searchinAsPerYearAndMonth = () => {
+      let searchMonth = currentMonth;
+      let searchYear = currentYear;
+
+      let monthStringToInt = moment(`${searchMonth}`, "MMMM").format("MM");
+
+      let search = `${searchYear}-${monthStringToInt}`;
+      setUserSearch(search);
+    };
+    searchinAsPerYearAndMonth();
+  }, [currentMonth, currentYear]);
+
   return (
     <div className="calender-container">
       <h2>Calender</h2>
@@ -137,7 +157,9 @@ function CalenderComponent() {
           </table>
         ))}
       </div>
-      <button onClick={() => console.log(yearlistArr)}>Click</button>
+      <button onClick={() => console.log(rows[rows.length - 1].length)}>
+        Click
+      </button>
     </div>
   );
 }
