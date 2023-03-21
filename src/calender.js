@@ -13,6 +13,7 @@ function CalenderComponent() {
   );
 
   const [userSearch, setUserSearch] = useState("");
+  const [onSelectedDate, setSelectedDate] = useState();
 
   const weekDaysArray = moment.weekdaysShort();
   const monthsInArray = moment.months();
@@ -34,11 +35,13 @@ function CalenderComponent() {
   for (let day = 1; day < daysInmonth + 1; day++) {
     let currentDayClassName =
       day === parseInt(currentDay, 0) ? "today-date" : "";
+
+    let selectedDate = day === onSelectedDate ? "selected-date" : "";
+
     daysInMonthAsArray.push(
       <td
-        key={day}
-        onClick={() => console.log(day)}
-        className={`calendar-dates ${currentDayClassName}`}
+        onClick={() => setSelectedDate(day)}
+        className={`calendar-dates ${currentDayClassName} ${selectedDate}`}
       >
         {day}
       </td>
@@ -72,9 +75,7 @@ function CalenderComponent() {
     <tbody>
       <tr>
         {weekDaysArray.map((day) => (
-          <th className="week-days" key={day}>
-            {day}
-          </th>
+          <th className="week-days">{day}</th>
         ))}
       </tr>
     </tbody>
@@ -86,7 +87,6 @@ function CalenderComponent() {
         isExpand ? (
           <div
             className="months-list"
-            key={monthName}
             onClick={() => setCurrentMonth(monthName)}
           >
             {monthName}
@@ -114,11 +114,7 @@ function CalenderComponent() {
     >
       {yearlistArr.map((year) =>
         isYearExpand ? (
-          <div
-            key={year}
-            className="years-list"
-            onClick={() => setCurrentYear(year)}
-          >
+          <div className="years-list" onClick={() => setCurrentYear(year)}>
             {year}
           </div>
         ) : (
@@ -152,7 +148,7 @@ function CalenderComponent() {
         </div>
         <table className="week-days-contianer">{weekDay}</table>
         {rows.map((el) => (
-          <table key={el} className="week-dates-contianer">
+          <table className="week-dates-contianer">
             <tr>{el}</tr>
           </table>
         ))}

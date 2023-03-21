@@ -38,6 +38,28 @@
 
 .today-date {
   border: 1px solid #95feff;
+  background: repeating-linear-gradient(
+    -45deg,
+    #fff,
+    #fff 1px,
+    #95feff 5px,
+    #95feff 1px
+  );
+  color: #373737;
+  font-weight: bold;
+}
+
+.selected-date {
+  border: 1px solid #b7ffad;
+  background: repeating-linear-gradient(
+    -45deg,
+    #fff,
+    #fff 1px,
+    #b7ffad 5px,
+    #b7ffad 1px
+  );
+  color: #373737;
+  font-weight: bold;
 }
 
 /* dropdown  */
