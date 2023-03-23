@@ -12,7 +12,6 @@ export default function App() {
   const mockData = [
     { userAmount: 123, dateOfSubmit: "22-03-2023", timeOfSubmit: "22:03:25" },
     { userAmount: 555, dateOfSubmit: "22-03-2023", timeOfSubmit: "22:03:25" },
-    { userAmount: 345, dateOfSubmit: "22-03-2023", timeOfSubmit: "22:03:25" },
   ];
 
   useEffect(() => {
