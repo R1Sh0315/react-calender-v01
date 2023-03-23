@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 
 import "./styles.css";
+import ButtonComponent from "./button-component";
 
 function CalenderComponent() {
   const [isExpand, setExpand] = useState(false);
@@ -153,9 +154,13 @@ function CalenderComponent() {
           </table>
         ))}
       </div>
-      <button onClick={() => console.log(rows[rows.length - 1].length)}>
-        Click
-      </button>
+
+      <ButtonComponent
+        btnText={"CTA"}
+        onClickHandler={() => console.log("123")}
+        type={"ghost"}
+        isFontBold={true}
+      />
     </div>
   );
 }

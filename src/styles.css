@@ -128,3 +128,159 @@ td:first-child {
 td {
   color: #555555;
 }
+/* button  */
+
+.button-container {
+}
+
+.button-contain {
+  height: 40px;
+  min-width: 150px;
+  border-radius: 4px;
+  color: #454a45;
+  font-size: 14pt;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.primary-btn {
+  border: none;
+  background-color: #84ff81;
+}
+
+.secondary-btn {
+  border: none;
+  background-color: #ff8181;
+}
+
+.ghost-btn {
+  border: none;
+  background-color: transparent;
+}
+
+/* stepper */
+.stepper-container {
+  display: flex;
+  min-width: 400px;
+  width: 100%;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 7px;
+}
+
+.stepper-content {
+  border: 1px solid #454a45;
+  border-radius: 3px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.stepper-sub-button-container,
+.stepper-add-button-container {
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  margin: 2px 3px;
+}
+
+.stepper-content-and-label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+}
+
+.stepper-submit-btn {
+  display: flex;
+  gap: 5px;
+}
+
+.stepper-warning {
+  display: flex;
+  padding: 0 7px;
+  font-size: 9pt;
+  width: 100%;
+  margin-left: 35px;
+}
+
+.stepper-btn-add,
+.stepper-btn-sub {
+  height: 28px;
+  width: 28px;
+  display: flex;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-sub,
+.btn-add {
+  font-size: 20pt;
+  color: #454a45;
+}
+
+.sub-btn-disable {
+  color: #efefef;
+}
+
+.stepper-input {
+  height: 24px;
+  margin: 3px 0;
+  width: 75px;
+  border: none;
+  border-radius: 3px;
+  padding: 0 7px;
+  background-color: #fff7dd;
+  color: #454a45;
+}
+
+.stepper-warning {
+  color: #f45a5a;
+}
+
+.warning-text {
+  display: none;
+}
+
+/* table component  */
+.table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.table-header {
+}
+.table-row-data {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 35px;
+}
+
+.table-cell {
+  border-bottom: 1px solid #cdcdcd;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8e8e8;
+  color: #555555;
+}
+
+.debited-amount {
+  color: #e25a5a;
+  font-weight: bold;
+}
+.credited-amount {
+  color: #6de25a;
+  font-weight: bold;
+}
