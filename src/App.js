@@ -19,13 +19,13 @@ export default function App() {
   }, [customerData]);
   return (
     <div className="App">
-      <StepperComponent userData={(data) => setCustomerData(data)} />
+      {/* <StepperComponent userData={(data) => setCustomerData(data)} />
       <div>
         <TableComponent userData={customerData} />
       </div>
       <div>
         width: {width} ~ height: {height}
-      </div>
+      </div> */}
       <CalenderComponent />
     </div>
   );
